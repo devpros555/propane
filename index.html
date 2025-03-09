@@ -108,11 +108,19 @@
 <body>
     <header class="navbar">
         <h1>Mansfield Gas & Exhaust</h1>
+    
+        <div class="contact-info">
+            <p>123 Main Street, Mansfield, TX</p>
+            <p>(123) 456-7890</p>
+            <p>info@mansfieldgas.com</p>
+        </div>
+    
         <div class="hamburger" onclick="toggleMenu()">
             <div></div>
             <div></div>
             <div></div>
         </div>
+    
         <ul class="nav-links">
             <li><a href="./index.html">Home</a></li>
             <li><a href="./about.html">About</a></li>
@@ -120,12 +128,79 @@
             <li><a href="./contact.html">Contact</a></li>
         </ul>
     </header>
+    
     <script>
         function toggleMenu() {
             document.querySelector('.nav-links').classList.toggle('active');
         }
     </script>
-    <!-- end of header -->
+    
+    <style>
+        /* Header Styles */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: red;
+            padding: 12px 20px;
+            color: white;
+            width: 100%;
+            position: relative;
+        }
+    
+        /* Contact Info (Visible Only on Desktop) */
+        .contact-info {
+            display: none;
+            text-align: right;
+            font-size: 0.9rem;
+        }
+    
+        /* Desktop View */
+        @media screen and (min-width: 1024px) {
+            .navbar {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+    
+            .contact-info {
+                display: block;
+                position: absolute;
+                right: 20px;
+            }
+        }
+    
+        /* Mobile Navigation */
+        @media screen and (max-width: 768px) {
+            .hamburger {
+                display: flex;
+                position: absolute;
+                right: 20px;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+    
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: red;
+                display: none;
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+                padding: 10px 0;
+                z-index: 1000;
+                transition: all 0.3s ease-in-out;
+            }
+    
+            .nav-links.active {
+                display: flex;
+            }
+        }
+    </style>
+    
 
     <!-- start of hero section -->
 
@@ -476,4 +551,3 @@
 
 </body>
 </html>
-
